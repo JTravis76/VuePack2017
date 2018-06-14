@@ -58,14 +58,26 @@ namespace VuePack
 
             foreach (var project in _projects)
             {
+                bool processing = true;
                 string startPath = System.IO.Path.GetDirectoryName(project.FullName);
 
-                foreach (string file in System.IO.Directory.GetFiles(startPath, "*.ts", System.IO.SearchOption.AllDirectories))
+                //search each project to find original file
+                foreach (string file in System.IO.Directory.GetFiles(startPath, document.Name, System.IO.SearchOption.AllDirectories))
                 {
-                    if (file.IndexOf(Name) > -1)
+                    //search within project for related TS file
+                    foreach (string TSfile in System.IO.Directory.GetFiles(startPath, "*.ts", System.IO.SearchOption.AllDirectories))
                     {
-                        UpdateFile(file, GetDocumentText(document));
+                        if (TSfile.IndexOf(Name) > -1)
+                        {
+                            UpdateFile(TSfile, GetDocumentText(document));
+                            processing = false;
+                            break;
+                        }
+
+                        if (!processing)
+                            break;
                     }
+
                 }
             }
         }
