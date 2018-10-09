@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="4163aa08-9878-4b1c-a1ee-58ab67f7db5b" Version="1.1" Language="en-US" Publisher="Mads Kristensen" />
+        <Identity Id="4163aa08-9878-4b1c-a1ee-58ab67f7db5b" Version="1.2" Language="en-US" Publisher="Mads Kristensen" />
         <DisplayName>Vue.js Pack 2017</DisplayName>
         <Description xml:space="preserve">Contains HTML Intellisense and code snippets for the Vue.js JavaScript library</Description>
         <MoreInfo>https://github.com/madskristensen/VuePack2017</MoreInfo>
@@ -12,7 +12,7 @@
         <Tags>vue.js, snippets, javascript</Tags>
     </Metadata>
     <Installation>
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="15.0" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0,16.0)" />
     </Installation>
     <Prerequisites>
         <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,16.0)" DisplayName="Visual Studio core editor" />
@@ -23,4 +23,7 @@
         <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="registry.pkgdef" />
         <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="JavaScript\Snippets\snippets.pkgdef" />
     </Assets>
+    <Dependencies>
+        <Dependency Id="Microsoft.VisualStudio.MPF.15.0" DisplayName="Visual Studio MPF 15.0" d:Source="Installed" Version="[15.0]" />
+    </Dependencies>
 </PackageManifest>

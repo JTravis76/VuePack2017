@@ -1,11 +1,14 @@
 using System;
 using System.IO;
 using EnvDTE;
+using Microsoft.VisualStudio;
+using Microsoft.VisualStudio.Shell.Interop;
 
 namespace VuePack
 {
     static class ProjectHelpers
     {
+
         public static string GetRootFolder(this Project project)
         {
             if (string.IsNullOrEmpty(project.FullName))
@@ -42,5 +45,6 @@ namespace VuePack
 
             return null;
         }
+
     }
 }

@@ -17,6 +17,8 @@ namespace VuePack
             { "v-class", "If no argument is provided, it will add the binding’s value to the element’s classList, and update the class as the value changes." },
             { "v-cloak", "This property remains on the element until the associated ViewModel finishes compilation. Combined with CSS rules such as [v-cloak] { display: none }, this directive can be used to hide un-compiled mustache bindings until the ViewModel is ready." },
             { "v-el", "Register a reference to a DOM element on its owner Vue instance for easier access. e.g. <div v-el=\"hi\"> will be accessible as vm.$$.hi." },
+            { "v-else", ""},
+            { "v-else-if", ""},
             { "v-for", "We can use the v-for directive to render a list of items based on an Array. The v-for directive requires a special syntax in the form of item in items, where items is the source data Array and item is an alias for the Array element being iterated on" },
             { "v-html", "Updates the element’s innerHTML." },
             { "v-if", "Conditionally insert / remove the element based on the truthy-ness of the binding value. If the element is a <template> element, its content will be extracted as the conditional block." },

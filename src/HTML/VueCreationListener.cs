@@ -47,7 +47,7 @@ namespace VuePack
             {
                 Task.Run(() =>
                 {
-                    DirectivesCache.ProcessFile(e.FilePath);
+                    DirectivesCache.ProcessFile(e.FilePath);                    
                 });
             }
         }
