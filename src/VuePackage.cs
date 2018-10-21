@@ -142,21 +142,22 @@ namespace VuePack
             }
 
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            sb.Append("`").Append(vueTemplate).Append("`");
+            sb.Append("template: `").Append(vueTemplate).Append("`,");
 
             if (System.IO.File.Exists(filePath))
             {
                 string text = System.IO.File.ReadAllText(filePath);
+                text = text.Replace("template:`", "template: `");
 
-                int start = text.IndexOf("`") + 1;
-                int end = text.LastIndexOf("`,");
+                int start = text.IndexOf("template: `") + 11;
+                int end = text.IndexOf("`,");
 
                 if (end > start)
                 {
                     int cnt = end - start;
 
                     text = text.Remove(start, cnt);
-                    text = text.Replace("``", sb.ToString());
+                    text = text.Replace("template: ``,", sb.ToString());
 
                     System.IO.File.WriteAllText(filePath, text);
                 }
