@@ -98,6 +98,31 @@ namespace VuePack
             string ext = System.IO.Path.GetExtension(path);
             if (ext == null || ext.ToLowerInvariant() != ".vue") return;
 
+            string template = GetDocumentText(document);
+            int startIdx = template.IndexOf("<!--# sourceURL =");
+            int endIdx = template.LastIndexOf("-->") + 3;
+
+            if (startIdx > 0 && endIdx > 3)
+            {
+                string source = template.Substring(startIdx, (endIdx - startIdx));
+
+                template = template.Remove(startIdx, source.Length);
+
+                source = source.Replace("-->", "");
+                string[] filePath = source.Split('=');
+                if (filePath.Length > 0)
+                {
+                    UpdateFile(filePath[1], template);
+                }
+            }
+
+            // Was using this method before I ran into a issue where multi-file of the same name would appear in different directories.
+            // Causing the first instance of file to be written with in-correct template data
+            //FindTypescriptFile(document);
+        }
+
+        private void FindTypescriptFile(EnvDTE.Document document)
+        {
             /* When saving a .VUE file, search project directory for
              * matching .TS file. Open TS file and find/replace text 
              * between two multi-line string ticks (``) with next text

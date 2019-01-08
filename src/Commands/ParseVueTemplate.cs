@@ -107,6 +107,8 @@ namespace VuePack
             {
                 var sw = System.IO.File.CreateText(fullpath);
                 sw.Write(selection.Text.Replace("> <", $"> {Environment.NewLine} <"));
+                sw.WriteLine("");
+                sw.WriteLine($"<!--# sourceURL ={_dte2.ActiveDocument.FullName}-->");
                 sw.Close();
 
                 EnvDTE.Window window = _dte2.ItemOperations.OpenFile(fullpath);
