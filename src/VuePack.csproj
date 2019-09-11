@@ -79,7 +79,7 @@
   <ItemGroup>
     <VSCTCompile Include="VuePackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
-    </VSCTCompile>    
+    </VSCTCompile>
     <Resource Include="Resources\VueFile.png" />
     <Content Include="JavaScript\Snippets\VuePack\vue.snippet">
       <IncludeInVSIX>true</IncludeInVSIX>
@@ -292,6 +292,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>source.extension.vsixmanifest</DependentUpon>
       <MergeWithCTO>true</MergeWithCTO>
+      <ManifestResourceName>VSPackage</ManifestResourceName>
     </EmbeddedResource>
     <EmbeddedResource Include="VuePackage.resx">
       <MergeWithCTO>true</MergeWithCTO>
